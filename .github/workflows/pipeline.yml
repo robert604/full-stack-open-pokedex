@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
 
 jobs:
   simple_deployment_pipeline:
@@ -21,4 +22,3 @@ jobs:
         run: npm run build
       - name: test
         run: npm run test
-
