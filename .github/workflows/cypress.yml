@@ -7,8 +7,10 @@ jobs:
   cypress_pipeline:
     runs-on: ubuntu-18.04
     steps:
+      - name: npm install
+        run: npm install    
       - uses: cypress-io/github-action@v2
-        with:
+        with:        
           command: npm run test:e2e
           start: npm run start-prod
           wait-on: http://localhost:5000
