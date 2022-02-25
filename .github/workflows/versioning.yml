@@ -30,3 +30,5 @@ jobs:
           MESSAGES_JOINED: ${{ toJson(join(github.event.commits.*.message)) }}
           MESSAGES_TEST: ${{ contains(join(github.event.commits.*.message),'#skip') }}          
         run: echo "$COMMIT_MESSAGES"
+        run: echo "$MESSAGES_JOINED"
+        run: echo "$MESSAGES_TEST"
