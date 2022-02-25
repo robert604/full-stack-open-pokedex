@@ -16,3 +16,4 @@ jobs:
           heroku_app_name: "calm-lowlands-44218"
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           healthcheck: "https://calm-lowlands-44218.herokuapp.com/health"
+          rollbackonhealthcheckfailed: true
