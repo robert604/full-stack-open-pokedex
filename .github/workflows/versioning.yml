@@ -8,9 +8,11 @@ jobs:
   version_bump: 
     runs-on: ubuntu-18.04
     steps:
+      - uses: actions/checkout@v2    
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.36.0
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN}}
           WITH_V: true
           DEFAULT_BUMP: patch
+          DRY_RUN: true
