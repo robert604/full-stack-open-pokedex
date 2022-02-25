@@ -15,18 +15,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN}}
           WITH_V: true
           DEFAULT_BUMP: patch
-          DRY_RUN: true
-      - name: github context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: commits
-        env:
-          COMMITS: ${{ toJson(github.event.commits)}}
-        run: echo "$COMMITS"
-      - name: commit messages
-        env:
-          COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
-          MESSAGES_JOINED: ${{ toJson(join(github.event.commits.*.message)) }}
-          MESSAGES_TEST: ${{ contains(join(github.event.commits.*.message),'#skip') }}          
-        run: echo "$COMMIT_MESSAGES $MESSAGES_JOINED $MESSAGES_TEST"
