@@ -14,4 +14,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN}}
           WITH_V: true
           DEFAULT_BUMP: patch
-          DRY_RUN: true
