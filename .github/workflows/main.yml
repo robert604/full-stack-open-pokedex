@@ -6,9 +6,13 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  build: 
+  build:
     runs-on: ubuntu-18.04
     steps:
+      - name: print info
+        env:
+          $INFO1: ${{toJson(github)}}
+        run: echo "$INFO1"
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
@@ -17,3 +21,4 @@ jobs:
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           healthcheck: "https://calm-lowlands-44218.herokuapp.com/health"
           rollbackonhealthcheckfailed: true
+
