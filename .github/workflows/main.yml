@@ -10,6 +10,14 @@ jobs:
     if: ${{ github.event_name == 'pull_request' && ! contains(join(github.event.commits.*.message),'#skip')}}  
     runs-on: ubuntu-18.04
     steps:
+      - name: print info1
+        env:
+          INFO1: ${{ toJson(join(github.event.commits.*.message))}}
+        run: echo "$INFO1"
+      - name: print info2
+        env:
+          INFO2: ${{ toJson(!contains(join(github.event.commits.*.message),'#skip'))}}
+        run: echo "$INFO2"        
       - name: print info
         env:
           INFO: ${{ toJson(! contains(join(github.event.commits.*.message),'#skip'))}}
