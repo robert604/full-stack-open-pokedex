@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: print github
         env:
-          INFO: ${{ toJson(github)}}
+          INFO: ${{ toJson(github.event.commits)}}
         run: echo "$INFO"     
       - name: print info3
         env:
